@@ -252,7 +252,7 @@
 
       checkBottomReached() {
         const el = this.$refs['scroll-container'];
-        if (!el) return
+        if (!el) return;
         return el.scrollTop + el.offsetHeight + 1 >= el.scrollHeight;
       },
 

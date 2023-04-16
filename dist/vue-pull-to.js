@@ -776,10 +776,11 @@ function getMessageByState(config, state) {
 
       var sd = this.$el.style;
       setTransition(sd, duration > 0 || delay > 0 ? 'transform' : 'none', "".concat(duration, "ms"), "".concat(delay, "ms"));
-      sd.setProperty('transform', "translate(0, ".concat(y, "px)"));
+      sd.setProperty('transform', y === 0 ? 'none' : "translate(0, ".concat(y, "px)"));
     },
     checkBottomReached: function checkBottomReached() {
       var el = this.$refs['scroll-container'];
+      if (!el) return;
       return el.scrollTop + el.offsetHeight + 1 >= el.scrollHeight;
     },
     handleTouchStart: function handleTouchStart(event) {
